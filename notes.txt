@@ -1,0 +1,25 @@
+Wed Jul 29 11:46:02 CEST 2026
+What is DevOps? 
+Devops is automating everthing that the developers and operation teams used to do manually by clicks.
+How is it different from what you do now in IT support?
+In It support, we do troubleshooting manually, here we automate every steps, there we deal with users, here we will be working with servers. 
+n notes.txt, 4 lines only:
+
+/etc = configurations
+/var/log = logs 
+600 = only owner has read/write permissions 
+nginx is a web server - You → Linux filesystem → permissions → nginx serves files → logs show what happened
+nginx = web server that can serve files or reverse-proxy to apps; config in /etc/nginx, logs in /var/log/nginx.
+
+config folder for nginx > cd /etc/nginx
+log folder for nginx > cd /var/log/nginx
+default web files folder > cd /var/www/html
+
+- sudo systemctl status nginx
+- curl -I http://localhost
+- sudo tail -n 5 /var/log/nginx/access.log
+
+- what is git? git is a version control system-- all changes can be tracked.
+- what is commit? commit is like a snapshot of our changes/work
+- why do devops engrs need Git? Codes are stored in git, pipelines, IAC , app code live in git
+
