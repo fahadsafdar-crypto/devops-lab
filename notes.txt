@@ -23,3 +23,5 @@ default web files folder > cd /var/www/html
 - what is commit? commit is like a snapshot of our changes/work
 - why do devops engrs need Git? Codes are stored in git, pipelines, IAC , app code live in git
 
+
+Week 2: Git remote + branches
