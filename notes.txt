@@ -25,3 +25,31 @@ default web files folder > cd /var/www/html
 
 
 Week 2: Git remote + branches
+remote origin = GitHub URL nickname
+add = stage files
+commit = local snapshot
+push = send commits to GitHub
+checkout -b = create/switch branch
+checkout main = switch branch
+merge = combine branch into current
+-u = set upstream tracking
+
+
+IP = address of a machine on a network
+DNS = name → IP (example.com → 1.2.3.4)
+Port = door on that machine (80 http, 443 https, 22 ssh)
+
+ping = host reachability -can I reach the host? App can still be down even if ping works.
+ss -tuln = which ports are listening
+curl -I = HTTP status from web service
+
+Site down order:
+1) systemctl status
+2) ss -tuln (port)
+3) curl -I
+4) logs (/var/log/... or journalctl)
+
+ip a | show interfaces/IPs | identify host address
+ping | reachability check | is host reachable
+ss -tuln | listening ports | is service bound to a port
+curl -I | HTTP status/headers | is web app responding
