@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    container_name: hello-web
+    ports: 
+      - "8080:80"
+
+
+
+  redis:
+    image: redis:alpine
+    container_name: hello-redis
+
