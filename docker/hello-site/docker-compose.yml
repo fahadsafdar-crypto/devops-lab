@@ -10,4 +10,9 @@ services:
   redis:
     image: redis:alpine
     container_name: hello-redis
+    volumes:
+       - redis-data:/data
 
+
+volumes:
+  redis-data:
