@@ -11,7 +11,8 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+
 
       - name: Say hello
         run: echo "Hello from CI — pushed by Fahad"
