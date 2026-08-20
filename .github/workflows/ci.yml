@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Build DOcker Image
-        run: docker build -t hello-site:ci ./docker/hellosite
+        run: docker build -t hello-site:ci ./docker/hello-site
 
       - name: List Images
         run: docker images | head -20
