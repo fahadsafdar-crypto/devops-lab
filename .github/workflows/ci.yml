@@ -1,7 +1,11 @@
 name: CI Pipeline
 
 on:
-  push:
+  push:           # push pe run karo
+  #pull_request:      # PR open hone pe run karo
+  #schedule:          # timer pe (jaise har raat 2 baje)
+  #  - cron: "0 2 * * *"
+  #workflow_dispatch: # manually button dabao GitHub pe
     branches:
       - main
 
@@ -13,9 +17,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
+      - name: Build DOcker Image
+        run: docker build -t hello-site:ci ./docker/hellosite
 
-      - name: Say hello
-        run: echo "Hello from CI — pushed by Fahad"
+      - name: List Images
+        run: docker images | head -20
 
-      - name: Show directory
-        run: ls -la
+
+
+     # - name: Say hello
+      #  run: echo "Hello from CI — pushed by Fahad"
+
+     # - name: Show directory
+      #  run: ls -la
