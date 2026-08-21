@@ -1,4 +1,8 @@
-# Week 1 — Linux Foundations
+# devops-lab
+
+![CI](https://github.com/fahadsafdar-crypto/devops-lab/actions/workflows/ci.yml/badge.svg)
+
+## Week 1 — Linux Foundations
 
 - Lab: Ubuntu 22.04 WSL2 + VS Code (`code .` from WSL)
 - Created workspace: mkdir ~/devops-lab
@@ -7,5 +11,4 @@
 - nginx: sudo apt install nginx -y; systemctl status/start/enable; curl -I http://localhost
 - Commands: apt, systemctl, cp, mv, rm, ls, cd, cat, head, tail, less, curl
 - Learned: filesystem, permissions, files/dirs, service run/stop/verify with logs
-- ~/devops-lab (under home),/devops-lab at filesystem root
-
+- Workspace: ~/devops-lab (under home), not /devops-lab at filesystem root
