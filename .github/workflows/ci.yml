@@ -27,9 +27,19 @@ jobs:
         run: docker run -d --name ci-web -p 8080:80 hello-site:ci
 
       - name: smoke test
-        run: curl -f -I http://localhost:8080    
-
-
+        run: |
+    for i in 1 2 3 4 5 6 7 8 9 10; do
+      if curl -f -I http://localhost:8080; then
+        echo "Smoke test OK"
+        exit 0
+      fi
+      echo "Attempt $i failed, waiting..."
+      sleep 1
+    done
+    echo "Smoke test FAILED"
+    docker ps -a
+    docker logs ci-web
+    exit 1
 
      # - name: Say hello
       #  run: echo "Hello from CI — pushed by Fahad"
