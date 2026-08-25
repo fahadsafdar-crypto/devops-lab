@@ -39,9 +39,17 @@ jobs:
           echo "Smoke test FAILED"
           docker ps -a
           docker logs ci-web
-          exit 1
-      
-    
+          exit
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+
+      - name: Tag and push image (git SHA)
+        run: |
+          IMAGE="ghcr.io/${{ github.repository_owner }}/hello-site:${{ github.sha }}"
+          docker tag hello-site:ci "$IMAGE"
+          docker push "$IMAGE"
+          echo "Pushed $IMAGE"
      # - name: Say hello
       #  run: echo "Hello from CI — pushed by Fahad"
 
