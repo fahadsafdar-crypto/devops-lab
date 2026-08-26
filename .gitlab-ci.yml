@@ -1,3 +1,4 @@
+#GITLAB
 stages:
   - build
 
