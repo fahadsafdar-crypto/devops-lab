@@ -1,0 +1,13 @@
+stages:
+  - build
+
+build-image:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+  script:
+    - docker build -t hello-site:ci ./docker/hello-site
+    - docker images
