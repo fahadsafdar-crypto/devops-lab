@@ -25,3 +25,16 @@ Common causes:
 - bad image / bad Dockerfile
 
 A failing test is useful: it blocks a broken change from looking “done.”
+
+
+## CI: GitHub Actions vs GitLab CI
+
+- GitHub: `.github/workflows/ci.yml` — Actions tab. GitLab: `.gitlab-ci.yml` at repo root — Build → Pipelines.
+- GitHub uses `jobs` / `steps` / `run:`. GitLab uses a job name and `script:`.
+- Both: push to `main` → rented machine → `docker build -t hello-site:ci ./docker/hello-site`.
+- GitHub also smoke-tests and pushes GHCR with git SHA. GitLab today = build only.
+
+Jenkins / Azure DevOps = names in German job ads. We are not using them. Cloud = AWS later.
+
+```text
+push → CI reads YAML → docker build hello-site:ci → green or red
