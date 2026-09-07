@@ -3,7 +3,7 @@
 
 Personal DevOps lab on Ubuntu 22.04 WSL2 + VS Code.  
 This repository is what I built after work.
-
+```text
 ~/devops-lab
   docker/hello-site     Compose app (nginx + Redis)
   .github/workflows     GitHub Actions
