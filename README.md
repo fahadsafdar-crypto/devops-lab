@@ -1,12 +1,9 @@
 # devops-lab
-
 ![CI](https://github.com/fahadsafdar-crypto/devops-lab/actions/workflows/ci.yml/badge.svg)
-
-<<<<<<< HEAD
 
 Personal DevOps lab on Ubuntu 22.04 WSL2 + VS Code.  
 This repository is what I built after work.
-```text
+
 ~/devops-lab
   docker/hello-site     Compose app (nginx + Redis)
   .github/workflows     GitHub Actions
@@ -15,11 +12,7 @@ This repository is what I built after work.
   terraform/ec2-lab     Terraform SG + EC2
   scripts/              small bash scripts
 
-
-## Linux Foundations
-=======
 ## — Linux Foundations
->>>>>>> 592d4737e4891bba63599494088852e95d165a49
 
 - Lab: Ubuntu 22.04 WSL2 + VS Code (`code .` from WSL)
 - Created workspace: mkdir ~/devops-lab
@@ -29,7 +22,6 @@ This repository is what I built after work.
 - Commands: apt, systemctl, cp, mv, rm, ls, cd, cat, head, tail, less, curl
 - Learned: filesystem, permissions, files/dirs, service run/stop/verify with logs
 - Workspace: ~/devops-lab (under home), not /devops-lab at filesystem root
-
 
 ## When the CI smoke test fails
 
@@ -43,7 +35,6 @@ Common causes:
 
 A failing test is useful: it blocks a broken change from looking “done.”
 
-
 ## CI: GitHub Actions vs GitLab CI
 
 - GitHub: `.github/workflows/ci.yml` — Actions tab. GitLab: `.gitlab-ci.yml` at repo root — Build → Pipelines.
@@ -51,11 +42,7 @@ A failing test is useful: it blocks a broken change from looking “done.”
 - Both: push to `main` → rented machine → `docker build -t hello-site:ci ./docker/hello-site`.
 - GitHub also smoke-tests and pushes GHCR with git SHA. GitLab today = build only.
 
-<<<<<<< HEAD
-
-```text
 push → CI reads YAML → docker build hello-site:ci → green or red
-
 
 ## Docker
 
@@ -75,6 +62,7 @@ curl -I http://127.0.0.1:8080
 - Monthly budget alarm
 - Demo deploy: copy Compose app to EC2, run it, tear the instance down
 - scp -i KEY.pem -r ~/devops-lab/docker/hello-site ubuntu@PUBLIC_IP:~/
+- 
 ## Terraform
 
 Infrastructure as code: describe AWS in .tf files, then apply or destroy.
@@ -91,21 +79,4 @@ Infrastructure as code: describe AWS in .tf files, then apply or destroy.
 - output = print values after apply (e.g. public IP).
 - State files (*.tfstate) and .terraform/ are gitignored.
 
-
-=======
-```text
 push → CI reads YAML → docker build hello-site:ci → green or red
-
-## AWS (eu-central-1 / Frankfurt)
-Hands-on with a personal IAM user (MFA). Not production SAP Sovereign Cloud.
-- IAM, security groups (SSH from my IP only), EC2 Ubuntu, S3 (versioning), AWS CLI, monthly budget alarm.
-- Docker Compose app copied to EC2 with `scp`, `docker compose up`, then instance terminated.
-- Images: GitHub Actions also pushes `hello-site` to GHCR tagged with git SHA.
-## Terraform
-Folders (this repo):
-- `terraform/s3-lab` — S3 bucket: `init` → `plan` → `apply` → `destroy`
-- `terraform/ec2-lab` — security group (SSH `/32`) + `t3.micro`, Ubuntu AMI from SSM (not a hardcoded `ami-…`), existing key pair, `outputs` public IP, then `destroy`
-```text
-.tf files  →  terraform apply  →  AWS creates SG + EC2
-           →  terraform destroy →  AWS deletes them
->>>>>>> 592d4737e4891bba63599494088852e95d165a49
