@@ -2,15 +2,7 @@
 ![CI](https://github.com/fahadsafdar-crypto/devops-lab/actions/workflows/ci.yml/badge.svg)
 
 Personal DevOps lab on Ubuntu 22.04 WSL2 + VS Code.  
-This repository is what I built after work.
-```text
-~/devops-lab
-  docker/hello-site     Compose app (nginx + Redis)
-  .github/workflows     GitHub Actions
-  .gitlab-ci.yml        GitLab CI
-  terraform/s3-lab      Terraform S3
-  terraform/ec2-lab     Terraform SG + EC2
-  scripts/              small bash scripts
+This repository is what I built after work
 
 ## — Linux Foundations
 
