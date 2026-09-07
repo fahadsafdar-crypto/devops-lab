@@ -33,20 +33,6 @@ A failing test is useful: it blocks a broken change from looking “done.”
 - GitHub uses `jobs` / `steps` / `run:`. GitLab uses a job name and `script:`.
 - Both: push to `main` → rented machine → `docker build -t hello-site:ci ./docker/hello-site`.
 - GitHub also smoke-tests and pushes GHCR with git SHA. GitLab today = build only.
-  
-##  Git (on WSL)
-```bash
-cd ~/devops-lab
-# confirm terraform exists locally
-ls terraform/s3-lab terraform/ec2-lab
-git add .gitignore README.md
-git add terraform/s3-lab/*.tf terraform/ec2-lab/*.tf
-git add terraform/s3-lab/.terraform.lock.hcl terraform/ec2-lab/.terraform.lock.hcl 2>/dev/null
-git status
-# must NOT list .pem or .tfstate
-git commit -m "docs: AWS labs and Terraform s3-lab + ec2-lab"
-git push origin main
-git push gitlab main
 
 ```text
 push → CI reads YAML → docker build hello-site:ci → green or red
