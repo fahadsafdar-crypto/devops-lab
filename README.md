@@ -38,6 +38,7 @@ push → CI reads YAML → docker build hello-site:ci → green or red
 
 ## Docker
 
+```text
 sudo apt update
 sudo apt install -y docker.io docker-compose-v2
 cd ~/devops-lab/docker/hello-site
