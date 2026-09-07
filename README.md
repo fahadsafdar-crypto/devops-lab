@@ -53,7 +53,7 @@ curl -I http://127.0.0.1:8080
 - S3 bucket, versioning, AWS CLI (aws s3 ls)
 - Monthly budget alarm
 - Demo deploy: copy Compose app to EC2, run it, tear the instance down
-- scp -i KEY.pem -r ~/devops-lab/docker/hello-site ubuntu@PUBLIC_IP:~/
+- scp -i KEY.pem -r ....
 - 
 ## Terraform
 
