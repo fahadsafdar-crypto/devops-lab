@@ -23,7 +23,7 @@ default web files folder > cd /var/www/html
 - why do devops engrs need Git? Codes are stored in git, pipelines, IAC , app code live in git
 
 
-Week 2: Git remote + branches
+ Git remote + branches
 remote origin = GitHub URL nickname
 add = stage files
 commit = local snapshot
