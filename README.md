@@ -33,8 +33,33 @@ A failing test is useful: it blocks a broken change from looking “done.”
 - GitHub uses `jobs` / `steps` / `run:`. GitLab uses a job name and `script:`.
 - Both: push to `main` → rented machine → `docker build -t hello-site:ci ./docker/hello-site`.
 - GitHub also smoke-tests and pushes GHCR with git SHA. GitLab today = build only.
-
-Jenkins / Azure DevOps = names in German job ads. We are not using them. Cloud = AWS later.
+  
+##  Git (on WSL)
+```bash
+cd ~/devops-lab
+# confirm terraform exists locally
+ls terraform/s3-lab terraform/ec2-lab
+git add .gitignore README.md
+git add terraform/s3-lab/*.tf terraform/ec2-lab/*.tf
+git add terraform/s3-lab/.terraform.lock.hcl terraform/ec2-lab/.terraform.lock.hcl 2>/dev/null
+git status
+# must NOT list .pem or .tfstate
+git commit -m "docs: AWS labs and Terraform s3-lab + ec2-lab"
+git push origin main
+git push gitlab main
 
 ```text
 push → CI reads YAML → docker build hello-site:ci → green or red
+
+## AWS (eu-central-1 / Frankfurt)
+Hands-on with a personal IAM user (MFA). Not production SAP Sovereign Cloud.
+- IAM, security groups (SSH from my IP only), EC2 Ubuntu, S3 (versioning), AWS CLI, monthly budget alarm.
+- Docker Compose app copied to EC2 with `scp`, `docker compose up`, then instance terminated.
+- Images: GitHub Actions also pushes `hello-site` to GHCR tagged with git SHA.
+## Terraform
+Folders (this repo):
+- `terraform/s3-lab` — S3 bucket: `init` → `plan` → `apply` → `destroy`
+- `terraform/ec2-lab` — security group (SSH `/32`) + `t3.micro`, Ubuntu AMI from SSM (not a hardcoded `ami-…`), existing key pair, `outputs` public IP, then `destroy`
+```text
+.tf files  →  terraform apply  →  AWS creates SG + EC2
+           →  terraform destroy →  AWS deletes them
