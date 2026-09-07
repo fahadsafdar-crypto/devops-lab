@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/fahadsafdar-crypto/devops-lab/actions/workflows/ci.yml/badge.svg)
 
-## Week 1 — Linux Foundations
+## — Linux Foundations
 
 - Lab: Ubuntu 22.04 WSL2 + VS Code (`code .` from WSL)
 - Created workspace: mkdir ~/devops-lab
